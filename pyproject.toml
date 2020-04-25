@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "x2cdict"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+googletrans = "^2.4.0"
+click = "^7.1.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+vocab = "x2cdict.play:search_word"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
