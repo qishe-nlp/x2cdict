@@ -1,13 +1,14 @@
 [tool.poetry]
 name = "x2cdict"
-version = "0.1.0"
+version = "0.1.7"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Phoenix Grey <phoenix.grey0108@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
 googletrans = "^2.4.0"
 click = "^7.1.1"
+pymongo = "^3.10.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
