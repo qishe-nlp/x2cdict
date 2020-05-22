@@ -13,7 +13,8 @@ class VocabDict:
     self.google_api = Translator()
     self.api = None
     if self.dictname in self.__class__.APIS:
-      self.api = DB(self.dictname)
+      # TODO: move auth into configuration
+      self.api = DB(self.dictname, "phoenix", "turingmachine", "192.168.21.2")
       self.posmap = POSMAP[from_lang]
 
   def word(self, w, pos=None):
@@ -30,7 +31,7 @@ class VocabDict:
     if self.to_lang == "cn":
       to_lang = "zh-cn"
     _r = self.google_api.translate(w, src=self.from_lang, dest=to_lang)
-    _pos = pos.lower() + "." 
+    _pos = pos.lower() + "." if pos != None else None 
     result = {
       "word": w,
       "explaination": {"pos": _pos, "meaning": _r.text},
