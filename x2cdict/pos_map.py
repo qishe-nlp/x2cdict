@@ -8,6 +8,7 @@ POSMAP['es'] = {
   "CONJ": ['conj.'],
   "ADP": ['prep.'],
   "NOUN": ['m.', 'f.', 'm.f.'],
-  "VERB": ['vi.', 'vt.', 'vr.']
+  "VERB": ['vi.', 'vt.', 'vr.'],
+  "AUX": ['vi.', 'vt.', 'vr.']
 }
 

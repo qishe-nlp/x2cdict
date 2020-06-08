@@ -14,7 +14,7 @@ class VocabDict:
     self.api = None
     if self.dictname in self.__class__.APIS:
       # TODO: move auth into configuration
-      self.api = DB(self.dictname, "phoenix", "turingmachine", "192.168.21.50")
+      self.api = DB(self.dictname, "phoenix", "turingmachine", "127.0.0.1")
       self.posmap = POSMAP[from_lang]
 
   def word(self, w, pos=None):
@@ -55,6 +55,9 @@ class VocabDict:
         result = {
           "word": w,
           "explaination": e,
+          "variations": {
+            "origin": w
+          },
           "from": self.dictname 
         }
 
@@ -70,20 +73,25 @@ class VocabDict:
     if verb != None:
       origin_verb = verb["extension"]["origin"]
       info = self.api_search_verb_original(origin_verb, _pos)
-      result = {
-        "word": w,
-        "explaination": info["explaination"],
-        "variations": verb["extension"]["variations"],
-      }
-      if "extension" in info.keys():
-        result["extension"] = info["extension"]
+      if info != None:
+        result = {
+          "word": w,
+          "explaination": info["explaination"],
+          "variations": {
+            "origin": origin_verb,
+            "formats": verb["extension"]["variations"]
+          },
+          "from": self.dictname
+        }
+        if "extension" in info.keys():
+          result["extension"] = info["extension"]
     return result
 
   def api_search(self, w, pos):
     _pos = self.posmap[pos] if pos in self.posmap.keys() else [pos] 
 
     result = None
-    if pos == "VERB":
+    if pos == "VERB" or pos == "AUX":
       result = self.api_search_verb_original(w, _pos)
       if result == None:
         result = self.api_search_verb_variation(w, _pos)
