@@ -1,6 +1,7 @@
 from googletrans import Translator
 from x2cdict.db import DB
 from x2cdict.pos_map import POSMAP
+import os
 
 class VocabDict:
 
@@ -14,7 +15,7 @@ class VocabDict:
     self.api = None
     if self.dictname in self.__class__.APIS:
       # TODO: move auth into configuration
-      self.api = DB(self.dictname, "phoenix", "turingmachine", "127.0.0.1")
+      self.api = DB(self.dictname, os.getenv("DB_USER", "phoenix"), os.getenv("DB_PASS", "turingmachine"), os.getenv("DB_HOST", "127.0.0.1"))
       self.posmap = POSMAP[from_lang]
 
   def word(self, w, pos=None):
