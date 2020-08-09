@@ -35,7 +35,7 @@ class VocabDict:
     _pos = pos.lower() + "." if pos != None else None 
     result = {
       "word": w,
-      "explaination": {"pos": _pos, "meaning": _r.text},
+      "explanation": {"pos": _pos, "meaning": _r.text},
       "from": "Google"
     }
     return result
@@ -44,7 +44,7 @@ class VocabDict:
     result = None
     verb = self.api.search_vocab(w)
     if verb != None:
-      ex = verb["explaination"]
+      ex = verb["explanation"]
 
       e = None
       for i in ex:
@@ -55,7 +55,7 @@ class VocabDict:
       if e != None:
         result = {
           "word": w,
-          "explaination": e,
+          "explanation": e,
           "variations": {
             "origin": w
           },
@@ -77,7 +77,7 @@ class VocabDict:
       if info != None:
         result = {
           "word": w,
-          "explaination": info["explaination"],
+          "explanation": info["explanation"],
           "variations": {
             "origin": origin_verb,
             "formats": verb["extension"]["variations"]
@@ -100,7 +100,7 @@ class VocabDict:
       _r = self.api.search_vocab(w)
 
       if _r != None:
-        ex = _r["explaination"]
+        ex = _r["explanation"]
 
         e = ex[0]
         for i in ex:
@@ -110,7 +110,7 @@ class VocabDict:
    
         result = {
           "word": w,
-          "explaination": e,
+          "explanation": e,
           "from": self.dictname 
         }
 
