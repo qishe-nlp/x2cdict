@@ -14,7 +14,6 @@ class VocabDict:
     self.google_api = Translator()
     self.api = None
     if self.dictname in self.__class__.APIS:
-      # TODO: move auth into configuration
       self.api = DB(self.dictname, os.getenv("DB_USER", "phoenix"), os.getenv("DB_PASS", "turingmachine"), os.getenv("DB_HOST", "127.0.0.1"))
       self.posmap = POSMAP[from_lang]
 
@@ -31,13 +30,16 @@ class VocabDict:
     to_lang = self.to_lang
     if self.to_lang == "cn":
       to_lang = "zh-cn"
-    _r = self.google_api.translate(w, src=self.from_lang, dest=to_lang)
-    _pos = pos.lower() + "." if pos != None else None 
-    result = {
-      "word": w,
-      "explanation": {"pos": _pos, "meaning": _r.text},
-      "from": "Google"
-    }
+    try:
+      _r = self.google_api.translate(w, src=self.from_lang, dest=to_lang)
+      _pos = pos.lower() + "." if pos != None else None 
+      result = {
+        "word": w,
+        "explanation": {"pos": _pos, "meaning": _r.text},
+        "from": "Google"
+      }
+    except Exception as e:
+      result = None
     return result
 
   def api_search_verb_original(self, w, _pos):
