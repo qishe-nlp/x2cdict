@@ -17,13 +17,13 @@ class VocabDict:
       self.api = DB(self.dictname, os.getenv("DB_USER", "phoenix"), os.getenv("DB_PASS", "turingmachine"), os.getenv("DB_HOST", "127.0.0.1"))
       self.posmap = POSMAP[from_lang]
 
-  def word(self, w, pos=None):
+  def word(self, w, pos=None, google=True):
     if self.api != None:
       result = self.api_search(w, pos)
       if result == None:
-        result = self.google_search(w, pos)
+        result = self.google_search(w, pos) if google else None
     else:
-      result = self.google_search(w, pos)
+      result = self.google_search(w, pos) if google else None
     return result
 
   def google_search(self, w, pos):
