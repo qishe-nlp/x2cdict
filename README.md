@@ -22,7 +22,7 @@ def search_vocab(word, pos, fromlang, tolang, google):
   print(r)
 ```
 
-From above, `google` is a boolean variable to switch wether using google translation, default is `True`.
+From above, `google` is a boolean variable to switch whether using google translation, default is `True`.
 
 
 # Development
