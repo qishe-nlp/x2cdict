@@ -1,3 +1,3 @@
-__version__ = '0.1.0'
+__version__ = '0.1.20'
 
 from .dictapi import VocabDict
