@@ -34,6 +34,10 @@ git clone https://github.com/qishe-nlp/x2cdict.git
 
 ### Install [poetry](https://python-poetry.org/docs/)
 
+### Install dependencies
+```
+poetry update
+```
 
 ### Execute
 ```

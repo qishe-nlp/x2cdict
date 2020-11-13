@@ -1,5 +1,17 @@
-from x2cdict import __version__
+from x2cdict import __version__, VocabDict
 
 
 def test_version():
-    assert __version__ == '0.1.20'
+  assert __version__ == '0.1.21'
+
+
+def test_es2cn():
+  fromlang, tolang = "es", "cn"
+  word = "hhhhhh"
+  pos = None
+  google = False
+  vd = VocabDict(fromlang, tolang)
+  r = vd.search(word, pos, google)
+  print("Hello")
+  print(r)
+  assert r == None

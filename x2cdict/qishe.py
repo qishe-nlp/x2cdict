@@ -45,8 +45,8 @@ class QisheVocabDict:
       return result
 
   def verb_variation(self, w, _pos):
-    verb = self.api.search_verb_inverse_variation(w)
     result = None
+    verb = self.api.search_verb_inverse_variation(w)
     if verb != None:
       origin_verb = verb["extension"]["origin"]
       info = self.verb_original(origin_verb, _pos)
@@ -65,8 +65,8 @@ class QisheVocabDict:
     return result
 
   def other_vocab(self, w, _pos):
+    result = None
     _r = self.api.search_vocab(w)
-
     if _r != None:
       ex = _r["explanation"]
 
