@@ -11,3 +11,6 @@ def search_vocab(word, pos, fromlang, tolang, google):
   vd = VocabDict(fromlang, tolang)
   r = vd.search(word, pos, google)
   print(r)
+  r = vd.search_unified(word, pos, google)
+  print(r)
+

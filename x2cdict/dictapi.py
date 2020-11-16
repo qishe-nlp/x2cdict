@@ -1,5 +1,6 @@
 from x2cdict.google import GoogleVocabDict
 from x2cdict.qishe import QisheVocabDict
+from x2cdict.lib import formalize_record
 
 class VocabDict:
   """
@@ -19,3 +20,7 @@ class VocabDict:
       result = self.google_api.search(w, pos) if google else None
     return result
 
+  def search_unified(self, w, pos=None, google=True):
+    r = self.search(w, pos, google)
+    formed = formalize_record(r, self.from_lang)
+    return formed

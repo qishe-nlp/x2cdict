@@ -2,12 +2,12 @@ from x2cdict import __version__, VocabDict
 
 
 def test_version():
-  assert __version__ == '0.1.21'
+  assert __version__ == '0.1.22'
 
 
 def test_es2cn():
   fromlang, tolang = "es", "cn"
-  word = "hhhhhh"
+  word = "hehehe"
   pos = None
   google = False
   vd = VocabDict(fromlang, tolang)
