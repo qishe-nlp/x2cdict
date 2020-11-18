@@ -32,7 +32,8 @@ class EN2CN(DB):
  
       result = {
         "word": w,
-        "explanation": {'pos': e['pos'], 'meaning': e['meaning']},
+        "pos": e['pos'],
+        "meaning": e['meaning'],
         "from": self.dictname 
       }
       result['variations'] = e['variations'] if 'variations' in e.keys() else None
