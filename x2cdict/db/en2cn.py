@@ -32,7 +32,7 @@ class EN2CN(DB):
  
       result = {
         "word": w,
-        "pos": e['pos'],
+        "dict_pos": e['pos'],
         "meaning": e['meaning'],
         "from": self.dictname 
       }
