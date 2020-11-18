@@ -16,6 +16,8 @@ class GoogleVocabDict:
       result = {
         "word": w,
         "explanation": {"pos": _pos, "meaning": _r.text},
+        "extension": None,
+        "variations": None,
         "from": "Google"
       }
     except Exception as e:
