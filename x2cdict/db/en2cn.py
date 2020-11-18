@@ -17,7 +17,6 @@ class EN2CN(DB):
 
   def search_sentences(self, vocab):
     result = list(self.sentences.find({"original": {"$regex": ".* "+vocab+" .*"}}, {"_id": 0}))[:2]
-    print(result)
     return result
 
   def search(self, w, pos):
