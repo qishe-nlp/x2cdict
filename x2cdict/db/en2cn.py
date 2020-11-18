@@ -15,6 +15,11 @@ class EN2CN(DB):
     result = self.vocabs.find_one({"word": text})
     return result 
 
+  def search_sentences(self, vocab):
+    result = list(self.sentences.find({"original": {"$regex": ".* "+vocab+" .*"}}, {"_id": 0}))[:2]
+    print(result)
+    return result
+
   def search(self, w, pos):
     result = None
 
@@ -38,4 +43,5 @@ class EN2CN(DB):
       }
       result['variations'] = e['variations'] if 'variations' in e.keys() else None
       result['extension'] = e['extension'] if 'extension' in e.keys() else None
+      result['examples'] = self.search_sentences(w)
     return result

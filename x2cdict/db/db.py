@@ -10,4 +10,5 @@ class DB:
     self.client = MongoClient(uri)
     self.db = self.client[dbname]
     self.vocabs = self.db.vocabs
+    self.sentences = self.db.sentences
 
