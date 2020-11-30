@@ -5,6 +5,11 @@ pip3 install --index-url https://test.pypi.org/simple/ --extra-index-url https:/
 ```
 
 # Usage
+### Environment setting
+
+* `DICT_DB_HOST` is `127.0.0.1` by default
+* `DICT_DB_USER` is `dict` by default
+* `DICT_DB_PASSWORD` is `turingmachine` by default
 
 ### Binary Usage
 

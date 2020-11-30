@@ -15,7 +15,7 @@ class QisheVocabDict:
 
     self.api = None
     if self.dictname in self.__class__.APIS.keys():
-      self.api = self.__class__.APIS[self.dictname](os.getenv("DB_USER", "phoenix"), os.getenv("DB_PASS", "turingmachine"), os.getenv("DB_HOST", "127.0.0.1"))
+      self.api = self.__class__.APIS[self.dictname](os.getenv("DICT_DB_USER", "dict"), os.getenv("DICT_DB_PASS", "turingmachine"), os.getenv("DICT_DB_HOST", "127.0.0.1"))
 
   def search(self, w, pos):
     if self.api == None:
