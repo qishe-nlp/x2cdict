@@ -2,7 +2,7 @@ from x2cdict import __version__, VocabDict
 
 
 def test_version():
-  assert __version__ == '0.1.29'
+  assert __version__ == '0.1.30'
 
 
 def test_es2cn():

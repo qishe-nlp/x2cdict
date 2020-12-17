@@ -34,13 +34,14 @@ class EN2CN(DB):
           e = i
           break
  
-      result = {
-        "word": w,
-        "dict_pos": e['pos'],
-        "meaning": e['meaning'],
-        "from": self.dictname 
-      }
-      result['variations'] = e['variations'] if 'variations' in e.keys() else None
-      result['extension'] = e['extension'] if 'extension' in e.keys() else None
-      result['examples'] = self.search_sentences(w)
+      if e != None: 
+        result = {
+          "word": w,
+          "dict_pos": e['pos'],
+          "meaning": e['meaning'],
+          "from": self.dictname 
+        }
+        result['variations'] = e['variations'] if 'variations' in e.keys() else None
+        result['extension'] = e['extension'] if 'extension' in e.keys() else None
+        result['examples'] = self.search_sentences(w)
     return result
