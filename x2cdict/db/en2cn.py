@@ -28,7 +28,7 @@ class EN2CN(DB):
     if _r != None:
       ex = _r["explanation"]
 
-      e = ex[0] # default: first explaination
+      e = None # default: None 
       for i in ex:
         if i["pos"] in _pos:
           e = i
