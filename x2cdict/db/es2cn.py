@@ -106,8 +106,9 @@ class ES2CN(DB):
 
   def search(self, w, pos):
     result = self._search(w, pos)
-    e = {}
+    e = None
     if result != None:
+      e = {}
       e['word'] = result['word']
       e['meaning'] = result['explanation']['meaning']
       e['dict_pos'] = result['explanation']['pos']
