@@ -1,4 +1,4 @@
-from x2cdict import VocabDict
+from x2cdict import VocabDict, PhraseDict
 import click
 
 @click.command()
@@ -10,5 +10,15 @@ import click
 def search_vocab(word, pos, fromlang, tolang, google):
   vd = VocabDict(fromlang, tolang)
   r = vd.search(word, pos, google)
+  print(r)
+
+
+@click.command()
+@click.option("--phrase", help="Specify the phrase to look up", prompt="phrase")
+@click.option("--fromlang", help="Specify the language of the word", prompt="translate from")
+@click.option("--tolang", help="Specify the language the word to be translated into", prompt="translate to", default="cn")
+def search_phrase(phrase, fromlang, tolang):
+  vd = PhraseDict(fromlang, tolang)
+  r = vd.search(phrase)
   print(r)
 

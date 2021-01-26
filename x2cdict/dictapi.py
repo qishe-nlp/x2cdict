@@ -1,4 +1,4 @@
-from x2cdict.google import GoogleVocabDict
+from x2cdict.google import GoogleVocabDict, GooglePhraseDict
 from x2cdict.qishe import QisheVocabDict
 
 class VocabDict:
@@ -15,4 +15,18 @@ class VocabDict:
     result = self.qishe_api.search(w, pos)
     if result == None:
       result = self.google_api.search(w, pos) if google else None
+    return result
+
+
+class PhraseDict:
+  """
+  Google API to translate phrase 
+  """
+
+  def __init__(self, from_lang, to_lang="cn"):
+    self.from_lang, self.to_lang = from_lang, to_lang
+    self.google_api = GooglePhraseDict(from_lang, to_lang)
+
+  def search(self, p):
+    result = self.google_api.search(p)
     return result
