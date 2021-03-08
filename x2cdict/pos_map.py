@@ -20,7 +20,7 @@ POSMAP['en'] = {
   "CONJ": ['conj.'],
   "ADP": ['prep.'],
   "NOUN": ['n.'],
-  "VERB": ['vi.', 'vt.', 'vt.vi.', 'vi.vt.', 'v.'],
-  "AUX": ['vi.', 'vt.', 'vt.vi.', 'vi.vt.', 'v.']
+  "VERB": ['v.vi.', 'v.vt.', 'vt.vi.', 'vi.vt.', 'v.'],
+  "AUX": ['v.vi.', 'v.vt.', 'vt.vi.', 'vi.vt.', 'v.']
 }
 
