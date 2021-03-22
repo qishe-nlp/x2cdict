@@ -1,5 +1,5 @@
 from x2cdict.db.db import DB
-from x2cdict.pos_map import POSMAP
+from x2cdict.posmap import POSMAP
 
 class ES2CN(DB):
   """
@@ -14,6 +14,8 @@ class ES2CN(DB):
 
   def search_vocab(self, text):
     result = self.vocabs.find_one({"word": text})
+    if result != None:
+      del result['_id']
     return result 
 
   def search_verb_variation(self, text):
@@ -78,17 +80,17 @@ class ES2CN(DB):
     if _r != None:
       ex = _r["explanation"]
 
-      e = ex[0] # default: first explaination
+      e = None # default: None 
       for i in ex:
         if i["pos"] in _pos:
           e = i
           break
- 
-      result = {
-        "word": w,
-        "explanation": e,
-        "from": self.dictname 
-      }
+      if e != None: 
+        result = {
+          "word": w,
+          "explanation": e,
+          "from": self.dictname 
+        }
     return result
 
   def _search(self, w, pos):

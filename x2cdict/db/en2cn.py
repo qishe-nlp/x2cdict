@@ -1,5 +1,5 @@
 from x2cdict.db.db import DB
-from x2cdict.pos_map import POSMAP
+from x2cdict.posmap import POSMAP
 
 
 class EN2CN(DB):
@@ -13,6 +13,8 @@ class EN2CN(DB):
 
   def search_vocab(self, text):
     result = self.vocabs.find_one({"word": text})
+    if result != None:
+      del result["_id"]
     return result 
 
   def search_sentences(self, vocab):

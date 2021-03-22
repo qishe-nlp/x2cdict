@@ -11,8 +11,14 @@ class VocabDict:
     self.google_api = GoogleVocabDict(from_lang, to_lang)
     self.qishe_api = QisheVocabDict(from_lang, to_lang)
 
-  def search(self, w, pos=None, google=True):
-    result = self.qishe_api.search(w, pos)
+  def search(self, w, pos, google=True):
+    result = self.qishe_api.search_with_pos(w, pos)
+    if result == None:
+      result = self.google_api.search(w, pos) if google else None
+    return result
+
+  def search_without_pos(self, w, google=True):
+    result = self.qishe_api.search_without_pos(w)
     if result == None:
       result = self.google_api.search(w, pos) if google else None
     return result

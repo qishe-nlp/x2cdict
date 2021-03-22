@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "x2cdict"
-version = "0.1.34"
-description = ""
+version = "0.1.35"
+description = "translate X language into Chinese"
 authors = ["Phoenix Grey <phoenix.grey0108@gmail.com>"]
 
 [tool.poetry.dependencies]
@@ -15,6 +15,7 @@ pytest = "^5.2"
 
 [tool.poetry.scripts]
 vocab = "entry:search_vocab"
+vocab_without_pos = "entry:search_vocab_without_pos"
 phrase = "entry:search_phrase"
 
 

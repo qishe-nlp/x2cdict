@@ -1,3 +1,5 @@
+# Map https://universaldependencies.org/docs/u/pos/ to pos in dictionary
+
 POSMAP = {}
 
 POSMAP['es'] = {

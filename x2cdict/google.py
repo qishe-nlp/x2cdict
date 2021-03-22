@@ -15,7 +15,8 @@ class GoogleVocabDict:
       _pos = reform_pos(pos)
       result = {
         "word": w,
-        "explanation": {"pos": _pos, "meaning": _r.text},
+        "dict_pos": _pos,
+        "meaning": _r.text,
         "extension": None,
         "variations": None,
         "from": "Google"
