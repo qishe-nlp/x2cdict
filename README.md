@@ -18,20 +18,20 @@ The dictionary db is not built in this project, you have to install the DB by yo
 
 * Search vocabs with PoS assgined
 ```
-vocab --fromlang en --tolang cn --pos ADJ --word happy --google False
-vocab --help
+x2cdict_vocab --fromlang en --tolang cn --pos ADJ --word happy --google False
+x2cdict_vocab --help
 ```
 
 * Search vocabs without PoS
 ```
-vocab_without_pos --fromlang en --tolang cn --word happy --google False
-vocab_without_pos --help
+x2cdict_vocab_without_pos --fromlang en --tolang cn --word happy --google False
+x2cdict_vocab_without_pos --help
 ```
 
 * Search phrase
 ```
-phrase --fromlang en --tolang cn --phrase "overcome the problem"
-phrase --help
+x2cdict_phrase --fromlang en --tolang cn --phrase "overcome the problem"
+x2cdict_phrase --help
 ```
 
 ### Package Usage
@@ -77,9 +77,9 @@ which run tests under `tests/*`
 
 ### Execute
 ```
-poetry run vocab --help
-poetry run vocab_without_pos --help
-poetry run phrase --help
+poetry run x2cdict_vocab --help
+poetry run x2cdict_vocab_without_pos --help
+poetry run xc2dict_phrase --help
 ```
 
 ### Build
