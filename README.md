@@ -34,6 +34,18 @@ x2cdict_phrase --fromlang en --tolang cn --phrase "overcome the problem"
 x2cdict_phrase --help
 ```
 
+### Issues
+
+* PATH issue:
+  * The folder where the exectuable is installed may not be in your `PATH`. For Linux, check the `$HOME/.local/bin` to see whether the executable `x2cdict_*` is installed.
+  * Add `export PATH="$HOME/.local/bin:$PATH"` in `$HOME/.bashrc`
+
+* hpack issue:
+  ```
+  pip3 uninstall hpack
+  pip3 install hpack==3.0.0
+  ```
+
 ### Package Usage
 ```
 from x2cdict import VocabDict, PhraseDict
