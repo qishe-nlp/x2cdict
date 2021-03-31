@@ -101,12 +101,17 @@ poetry run xc2dict_phrase --help
   * `tests/test_x2cdict.py`
 * Build python package by `poetry build`
 
-### Publish
+### Publish from local dev env
 * Set pypi test environment variables in poetry, refer to [poetry doc](https://python-poetry.org/docs/repositories/)
 * Publish to pypi test by `poetry publish -r test`
 
-# TODO:
+### Publish through CI 
 
-### Github action to publish package
-* pypi test repo
-* pypi repo
+* Github action build and publish package to [test pypi repo](https://test.pypi.org/)
+
+```
+git tag [x.x.x]
+git push origin master
+```
+
+* Manually publish to [pypi repo](https://pypi.org/)
