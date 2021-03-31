@@ -12,7 +12,7 @@ pip3 install --verbose x2cdict
 * `DICT_DB_PASS` is `turingmachine` by default
 
 
-The dictionary db is not built in this project, you have to install the DB by yourself, refer to [BaJiu Dictionary Installation](https://github.com/bajiu-dict/deploy_dict_mongo).
+The dictionary db IS NOT BUILT in this project, you HAVE TO install the DB by yourself, refer to [BaJiu Dictionary Installation](https://github.com/bajiu-dict/deploy_dict_mongo).
 
 ### Binary Usage
 
