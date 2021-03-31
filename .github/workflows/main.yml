@@ -28,5 +28,5 @@ jobs:
         uses: JRubics/poetry-publish@v1
         with:
           pypi_token: ${{ secrets.TEST_PYPI_TOKEN }}
-          repository_name: 'x2cdict'
+          repository_name: 'testpypi'
           repository_url: 'https://test.pypi.org/legacy/'
