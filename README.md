@@ -1,7 +1,7 @@
 # Installation
 
 ```
-pip3 install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple --verbose x2cdict 
+pip3 install --verbose x2cdict 
 ```
 
 # Usage
@@ -114,4 +114,4 @@ git tag [x.x.x]
 git push origin master
 ```
 
-* Manually publish to [pypi repo](https://pypi.org/)
+* Manually publish to [pypi repo](https://pypi.org/) through [github action](https://github.com/qishe-nlp/x2cdict/actions/workflows/pypi.yml)
