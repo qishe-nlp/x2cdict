@@ -9,8 +9,12 @@ class ES2CN(DB):
     self.dictname = 'es2cn'
     self.posmap = POSMAP['es']
     super().__init__(self.dictname, user, password, host, authdb)
-    self.verbs_variation = self.db.verbs_variation
+    self.verbs_extension = self.db.verbs_extension
     self.verbs_inverse_variation = self.db.verbs_inverse_variation
+
+  def search_sentences(self, vocab):
+    result = list(self.sentences.find({"original": {"$regex": ".* "+vocab+" .*"}}, {"_id": 0}))[:2]
+    return result
 
   def search_vocab(self, text):
     result = self.vocabs.find_one({"word": text})
@@ -18,8 +22,8 @@ class ES2CN(DB):
       del result['_id']
     return result 
 
-  def search_verb_variation(self, text):
-    result = self.verbs_variation.find_one({"word": text})
+  def search_verb_extension(self, text):
+    result = self.verbs_extension.find_one({"word": text})
     return result 
 
   def search_verb_inverse_variation(self, text):
@@ -48,7 +52,7 @@ class ES2CN(DB):
           "from": self.dictname 
         }
 
-        vv = self.search_verb_variation(w) 
+        vv = self.search_verb_extension(w) 
         if vv != None:
           result["extension"] = vv["extension"] 
 
@@ -58,16 +62,13 @@ class ES2CN(DB):
     result = None
     verb = self.search_verb_inverse_variation(w)
     if verb != None:
-      origin_verb = verb["extension"]["origin"]
-      info = self.verb_original(origin_verb, _pos)
+      original_verb = verb["variations"]["original"]
+      info = self.verb_original(original_verb, _pos)
       if info != None:
         result = {
           "word": w,
           "explanation": info["explanation"],
-          "variations": {
-            "origin": origin_verb,
-            "formats": verb["extension"]["variations"]
-          },
+          "variations": verb["variations"],
           "from": self.dictname
         }
         if "extension" in info.keys():
@@ -121,4 +122,5 @@ class ES2CN(DB):
       else:
         e['extension'] = result['extension'] if 'extension' in result.keys() else None
         e['variations'] = result['variations'] if 'variations' in result.keys() else None
+      e['examples'] = self.search_sentences(w)
     return e
