@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "x2cdict"
-version = "0.1.40"
+version = "0.1.41"
 description = "translate X language into Chinese"
 authors = ["Phoenix Grey <phoenix.grey0108@gmail.com>"]
 readme = "README.md"
@@ -9,9 +9,9 @@ keywords = ["language", "dictionary", "Chinese"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-click = "^7.1.1"
 pymongo = "^3.10.1"
 googletrans = "4.0.0-rc1"
+click = "^8.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
