@@ -6,8 +6,8 @@ def reform_pos(pos):
 
 
 class DeepLVocabDict:
-  def __init__(self, from_lang, to_lang="zh-cn"):
-    self.from_lang, self.to_lang = from_lang, "zh-cn" if to_lang == "cn" else to_lang 
+  def __init__(self, from_lang, to_lang="ZH"):
+    self.from_lang, self.to_lang = from_lang.upper(), "ZH" if to_lang == "cn" else to_lang.upper() 
     self.api = deepl.Translator(os.getenv("DEEPL_AUTH_KEY"))
 
   def search(self, w, pos):
@@ -29,8 +29,8 @@ class DeepLVocabDict:
 
 class DeepLPhraseDict:
 
-  def __init__(self, from_lang, to_lang="zh-cn"):
-    self.from_lang, self.to_lang = from_lang, "zh-cn" if to_lang == "cn" else to_lang 
+  def __init__(self, from_lang, to_lang="ZH"):
+    self.from_lang, self.to_lang = from_lang.upper(), "ZH" if to_lang == "cn" else to_lang.upper()
     self.api = deepl.Translator(os.getenv("DEEPL_AUTH_KEY"))
 
   def search(self, p):

@@ -21,7 +21,7 @@ class VocabDict:
   def search_without_pos(self, w, google=True):
     result = self.qishe_api.search_without_pos(w)
     if result == None:
-      result = self.deepl_api.search(w, pos) if google else None
+      result = self.deepl_api.search(w, None) if google else None
     return result
 
 

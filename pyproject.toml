@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "x2cdict"
-version = "0.1.43"
+version = "0.1.44"
 description = "translate X language into Chinese"
 authors = ["Phoenix Grey <phoenix.grey0108@gmail.com>"]
 readme = "README.md"
