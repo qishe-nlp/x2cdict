@@ -6,7 +6,7 @@ def test_vocab_search_with_pos():
   api = VocabDict(from_lang, to_lang)  
 
   word = "happy"
-  # Right PoS, not using google
+  # Right PoS, not using external
   r = api.search(word, "ADJ", False)
   print(r)
   assert r["word"] == word
@@ -17,12 +17,12 @@ def test_vocab_search_with_pos():
   assert "examples" in r
   assert r["from"] == "en2cn"
 
-  # Wrong PoS, not using google
+  # Wrong PoS, not using external
   r = api.search(word, "XXX", False)
   print(r)
   assert r == None
 
-  # Wrong PoS, using google
+  # Wrong PoS, using external
   r = api.search(word, "XXX", True)
   print(r)
   assert r != None
@@ -31,20 +31,20 @@ def test_vocab_search_with_pos():
   assert "extension" in r
   assert "variations" in r
   assert r["dict_pos"] == "xxx."
-  assert r["from"] == "Google"
+  assert r["from"] == "DeepL"
 
   word = "xxx"
-  # Right PoS, not using google
+  # Right PoS, not using external
   r = api.search(word, "ADJ", False)
   print(r)
   assert r == None
 
-  # Wrong PoS, not using google
+  # Wrong PoS, not using external
   r = api.search(word, "XXX", False)
   print(r)
   assert r == None
 
-  # Wrong PoS, using google
+  # Wrong PoS, using external
   r = api.search("", "XXX", True)
   print(r)
   assert r == None

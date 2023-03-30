@@ -12,16 +12,16 @@ class VocabDict:
     self.deepl_api = DeepLVocabDict(from_lang, to_lang)
     self.qishe_api = QisheVocabDict(from_lang, to_lang)
 
-  def search(self, w, pos, google=True):
+  def search(self, w, pos, external=True):
     result = self.qishe_api.search_with_pos(w, pos)
     if result == None:
-      result = self.deepl_api.search(w, pos) if google else None
+      result = self.deepl_api.search(w, pos) if external else None
     return result
 
-  def search_without_pos(self, w, google=True):
+  def search_without_pos(self, w, external=True):
     result = self.qishe_api.search_without_pos(w)
     if result == None:
-      result = self.deepl_api.search(w, None) if google else None
+      result = self.deepl_api.search(w, None) if external else None
     return result
 
 

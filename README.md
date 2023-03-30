@@ -18,13 +18,13 @@ The dictionary db IS NOT BUILT in this project, you HAVE TO install the DB by yo
 
 * Search vocabs with PoS assgined
 ```
-x2cdict_vocab --fromlang en --tolang cn --pos ADJ --word happy --google False
+x2cdict_vocab --fromlang en --tolang cn --pos ADJ --word happy --external False
 x2cdict_vocab --help
 ```
 
 * Search vocabs without PoS
 ```
-x2cdict_vocab_without_pos --fromlang en --tolang cn --word happy --google False
+x2cdict_vocab_without_pos --fromlang en --tolang cn --word happy --external False
 x2cdict_vocab_without_pos --help
 ```
 
@@ -49,14 +49,14 @@ x2cdict_phrase --help
 ### Package Usage
 ```
 from x2cdict import VocabDict, PhraseDict
-def search_vocab(word, pos, fromlang, tolang, google):
+def search_vocab(word, pos, fromlang, tolang, external):
   vd = VocabDict(fromlang, tolang)
-  r = vd.search(word, pos, google)
+  r = vd.search(word, pos, external)
   print(r)
 
-def search_vocab_without_pos(word, fromlang, tolang, google):
+def search_vocab_without_pos(word, fromlang, tolang, external):
   vd = VocabDict(fromlang, tolang)
-  r = vd.search_without_pos(word, google)
+  r = vd.search_without_pos(word, external)
   print(r)
 
 def search_phrase(phrase, fromlang, tolang):
@@ -65,7 +65,7 @@ def search_phrase(phrase, fromlang, tolang):
   print(r)
 ```
 
-From above, `google` is a boolean variable to switch whether using google translation, default is `True`.
+From above, `external` is a boolean variable to switch whether using external translation, default is `True`.
 
 # Development
 
