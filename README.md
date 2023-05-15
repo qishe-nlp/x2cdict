@@ -10,6 +10,7 @@ pip3 install --verbose x2cdict
 * `DICT_DB_HOST` is `127.0.0.1` by default
 * `DICT_DB_USER` is `dict` by default
 * `DICT_DB_PASS` is `turingmachine` by default
+* `DEEPL_AUTH_KEY` has to be set by yourself
 
 
 The dictionary db IS NOT BUILT in this project, you HAVE TO install the DB by yourself, refer to [BaJiu Dictionary Installation](https://github.com/bajiu-dict/deploy_dict_mongo).
