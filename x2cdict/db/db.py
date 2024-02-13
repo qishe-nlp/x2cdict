@@ -9,6 +9,6 @@ class DB:
     uri = "mongodb://{}:{}@{}/{}".format(quote_plus(user), quote_plus(password), host, authdb)
     self.client = MongoClient(uri)
     self.db = self.client[dbname]
-    self.vocabs = self.db.vocabs
+    self.vocabs = self.db.vocabs if dbname!= "de2cn" else self.db.base
     self.sentences = self.db.sentences
 

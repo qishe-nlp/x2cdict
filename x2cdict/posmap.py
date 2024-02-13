@@ -2,6 +2,19 @@
 
 POSMAP = {}
 
+POSMAP['de'] = {
+  "ADV": ['Adv.'],
+  "ADJ": ['Adj.'],
+  "PRON": ['Pron.'],
+  "SCONJ": ['Konj.'],
+  "CONJ": ['Konj.'],
+  "ADP": ['Präp.'],
+  "NOUN": ['m.', 'f.', 'f.m.', 'n.'],
+  "VERB": ['V.i.', 'V.t.', 'V.', 'v.i.', 'v.t.', 'v.'],
+  "AUX": ['V.i.', 'V.t.', 'V.', 'v.i.', 'v.t.', 'v.']
+}
+
+
 POSMAP['es'] = {
   "ADV": ['adv.'],
   "ADJ": ['adj.'],

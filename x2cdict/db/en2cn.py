@@ -31,7 +31,7 @@ class EN2CN(DB):
       ex = _r["explanation"]
 
       e = None # default: None 
-      for i in ex:
+      for i in ex: # Pick the fisrt, NOT CORRECT
         if i["pos"] in _pos:
           e = i
           break

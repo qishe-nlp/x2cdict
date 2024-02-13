@@ -1,4 +1,4 @@
-from x2cdict.db import ES2CN, EN2CN
+from x2cdict.db import ES2CN, EN2CN, DE2CN
 from x2cdict.lib import gen_dictname
 import os
 
@@ -6,7 +6,8 @@ class QisheVocabDict:
 
   APIS = {
     "es2cn": ES2CN,
-    "en2cn": EN2CN
+    "en2cn": EN2CN,
+    "de2cn": DE2CN
   }
 
   def __init__(self, from_lang, to_lang="cn"):
