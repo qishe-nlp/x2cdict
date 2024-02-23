@@ -10,7 +10,7 @@ class ES2CN(DB):
     self.posmap = POSMAP['es']
     super().__init__(self.dictname, user, password, host, authdb)
     self.verbs_extension = self.db.verbs_extension
-    self.verbs_inverse_variation = self.db.verbs_inverse_variation
+    self.inverse_verbs_extension = self.db.inverse_verbs_extension
 
   def search_sentences(self, vocab):
     result = list(self.sentences.find({"original": {"$regex": ".* "+vocab+" .*"}}, {"_id": 0}))[:2]
@@ -26,8 +26,8 @@ class ES2CN(DB):
     result = self.verbs_extension.find_one({"word": text})
     return result 
 
-  def search_verb_inverse_variation(self, text):
-    result = self.verbs_inverse_variation.find_one({"word": text})
+  def search_inverse_verb_extension(self, text):
+    result = self.inverse_verbs_extension.find_one({"word": text})
     return result 
 
   def verb_original(self, w, _pos):
@@ -60,9 +60,10 @@ class ES2CN(DB):
 
   def verb_variation(self, w, _pos):
     result = None
-    verb = self.search_verb_inverse_variation(w)
+    verb = self.search_inverse_verb_extension(w)
     if verb != None:
-      original_verb = verb["variations"]["original"]
+      ivs = verb["variations"]
+      original_verb = ivs[-1]["original"] # TODO: find one variation 
       info = self.verb_original(original_verb, _pos)
       if info != None:
         result = {
@@ -100,9 +101,9 @@ class ES2CN(DB):
     _pos = self.posmap[pos] if pos in self.posmap.keys() else [pos] 
 
     if pos == "VERB" or pos == "AUX":
-      result = self.verb_original(w, _pos)
+      result = self.verb_original(w.lower(), _pos)
       if result == None:
-        result = self.verb_variation(w, _pos)
+        result = self.verb_variation(w.lower(), _pos)
     else:
       result = self.other_vocab(w, _pos)
     return result
